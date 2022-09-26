@@ -2,9 +2,8 @@ import {useEffect} from 'react'
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import {axiosInterviewPrivate} from '../../api/axios';
 import useData from '../../hooks/useData'
-import { useNavigate,useLocation } from 'react-router-dom';
+import { useNavigate,useLocation ,Link} from 'react-router-dom';
 
-import {Link} from 'react-router-dom'
 import { Typography } from '@mui/material';
 import Container from '@mui/material/Container';
 import Table from '@mui/material/Table';
