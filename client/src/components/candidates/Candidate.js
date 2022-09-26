@@ -1,14 +1,6 @@
-import React,{useEffect} from 'react'
-import useData from '../../hooks/useData';
+import React from 'react'
 
 const Candidate = () => {
-  const {candidates,setCandidates,err,setErr}=useData();
-
-  //set candidates here write api for that 
-  // useEffect(()=>{
-      
-  // },[])
-
   return (
     <div>Candidate</div>
   )
