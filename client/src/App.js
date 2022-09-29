@@ -34,14 +34,20 @@ function App() {
               <Route path='register' element={<RegisterCandidate/>}/>
               <Route path='edit/:id' element={<EditCandidate/>}/>
             </Route>
-            <Route path='interview'>
+          </Route>
+          <Route path='interview'>
+            <Route element={<RequireAuth allowedRole={'admin'}/>}>
               <Route index element={<Interviews/>}/>
+            </Route> 
+            <Route element={<RequireAuth allowedRole={'admin'}/>}>            
               <Route path='schedule' element={<ScheduleInterview/>}/>
+            </Route>
+            <Route element={<RequireAuth allowedRole={'tech hr'}/>}>
               <Route path='edit/:id' element={<UpdateInterview/>}/>
             </Route>
           </Route>
-          <Route element={<RequireAuth allowedRole={'tech hr'}/>}>
-            <Route path='interviewer'>
+          <Route path='interviewer'>
+            <Route element={<RequireAuth allowedRole={'tech hr'}/>}>
               <Route index element={<Interviewer/>}/>
             </Route>
           </Route>
