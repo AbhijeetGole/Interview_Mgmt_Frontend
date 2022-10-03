@@ -20,7 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromForAdmin = location.state?.from?.pathname || "/";
-  const fromForPanel = "/interviewer";
+  const fromForPanel = location.state?.from?.pathname.includes('/interview/edit/')?location.state?.from?.pathname :"/interviewer";
 
   useEffect(() => {
     setErr('');

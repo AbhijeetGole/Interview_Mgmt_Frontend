@@ -4,7 +4,6 @@ import useData from "../hooks/useData";
 const RequireAuth = ({ allowedRole }) => {
     const { auth } = useData();
     const location = useLocation();
-
     return (
         allowedRole.includes(auth?.role) 
         ?<Outlet />
