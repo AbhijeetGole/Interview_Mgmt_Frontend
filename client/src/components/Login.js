@@ -20,7 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const fromForAdmin = location.state?.from?.pathname || "/";
-  const fromForPanel = "/interviewer";
+  const fromForPanel = location.state?.from?.pathname.includes('/interview/edit/')?location.state?.from?.pathname :"/interviewer";
 
   useEffect(() => {
     setErr('');
@@ -63,10 +63,10 @@ const Login = () => {
 
   return (
   <>
-    <Paper elevation={6}>
+    <Paper elevation={6} className="logIn-card">
       {err && <p style={{color:'red'}}>{err}</p>}
       <div
-        className="fadeIn first"
+        className="fadeIn-first"
         style={{ float: "left", position: "absolute" }}
       >
         <h2
@@ -84,7 +84,6 @@ const Login = () => {
 
         <img
           src={login1}
-          style={{ width:"600px",height:"400px",marginTop: "4%", marginLeft: "5%" }}
           alt="login img"
           className="card-img-top"
         />

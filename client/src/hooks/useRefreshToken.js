@@ -5,12 +5,15 @@ const useRefreshToken = () => {
     const { setAuth } = useData();
 
     const refresh = async () => {
-        const response = await axios.get('/token/refresh', {
+        const response = await axios.get('/user/token', {
             withCredentials: true
         });
         setAuth(prev => {
-            console.log(prev);
-            return { ...prev, accessToken: response.data.accessToken }
+            return { 
+                ...prev,
+                role:response.data.role, 
+                accessToken: response.data.accessToken 
+            }
 
         });
         return response.data.accessToken;

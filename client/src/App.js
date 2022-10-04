@@ -15,6 +15,7 @@ import Interviewer from './components/Interviewer';
 import NotFound from "./components/NotFound";
 import RequireAuth from "./components/RequireAuth";
 import Unauthorized from "./components/Unauthorized";
+import PersistLogin from "./components/PersistLogin";
 
 function App() {
   return (
@@ -22,27 +23,35 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Layout/>}>
-          <Route element={<RequireAuth allowedRole={'admin'}/>}>
-            <Route index element={<Dashboard/>}/>
-            <Route path='panel'>
-              <Route index element={<Panel/>}/>  
-              <Route path='register' element={<RegisterPanel/>}/>
-              <Route path='edit/:id' element={<EditPanel/>}/>
-            </Route>
-            <Route path='candidate'>
-              <Route index element={<Candidate/>}/>
-              <Route path='register' element={<RegisterCandidate/>}/>
-              <Route path='edit/:id' element={<EditCandidate/>}/>
+          <Route element={<PersistLogin/>}>
+            <Route element={<RequireAuth allowedRole={'admin'}/>}>
+              <Route index element={<Dashboard/>}/>
+              <Route path='panel'>
+                <Route index element={<Panel/>}/>  
+                <Route path='register' element={<RegisterPanel/>}/>
+                <Route path='edit/:id' element={<EditPanel/>}/>
+              </Route>
+              <Route path='candidate'>
+                <Route index element={<Candidate/>}/>
+                <Route path='register' element={<RegisterCandidate/>}/>
+                <Route path='edit/:id' element={<EditCandidate/>}/>
+              </Route>
             </Route>
             <Route path='interview'>
-              <Route index element={<Interviews/>}/>
-              <Route path='schedule' element={<ScheduleInterview/>}/>
-              <Route path='edit/:id' element={<UpdateInterview/>}/>
+              <Route element={<RequireAuth allowedRole={'admin'}/>}>
+                <Route index element={<Interviews/>}/>
+              </Route> 
+              <Route element={<RequireAuth allowedRole={'admin'}/>}>            
+                <Route path='schedule' element={<ScheduleInterview/>}/>
+              </Route>
+              <Route element={<RequireAuth allowedRole={'tech hr admin'}/>}>
+                <Route path='edit/:id' element={<UpdateInterview/>}/>
+              </Route>
             </Route>
-          </Route>
-          <Route element={<RequireAuth allowedRole={'tech hr'}/>}>
             <Route path='interviewer'>
-              <Route index element={<Interviewer/>}/>
+              <Route element={<RequireAuth allowedRole={'tech hr'}/>}>
+                <Route index element={<Interviewer/>}/>
+              </Route>
             </Route>
           </Route>
           <Route path='unauthorized' element={<Unauthorized/>}/>

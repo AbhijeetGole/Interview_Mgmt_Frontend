@@ -1,4 +1,5 @@
 *{
+  font-family: 'Roboto';
   box-sizing: border-box;
 }
 
@@ -126,6 +127,7 @@ p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
   display: flex;
   flex-wrap: wrap;
   text-align: center;
+  font-size: 30px;
   justify-content: space-between;
 
 }
@@ -140,11 +142,22 @@ p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
   flex: 50%;
 }
 
-/* Responsive layout - makes a one column-layout instead of a two-column layout */
-@media (max-width: 800px) {
+.card-img-top{
+  width:600px;
+  height:400px;
+  margin-top: 4%; 
+  margin-left: 5%;
+}
 
+
+@media (max-width: 800px) {
   .flex-item-right, .flex-item-left {
     flex: 100%;
   }
-
+  .card-img-top{
+    display: none;
+  }
+  .logIn-card{
+    margin-top: 20%;
+  }
 }
