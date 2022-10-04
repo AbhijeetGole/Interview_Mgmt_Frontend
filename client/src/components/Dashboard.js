@@ -4,6 +4,9 @@ import {axiosInterviewPrivate} from '../api/axios';
 import { useNavigate, useLocation } from "react-router-dom";
 import useData from '../hooks/useData';
 import Chart from './Chart';
+import VerticalLinearStepper from './Stepper'
+import { Box } from '@mui/material';
+import '../index.css'
 
 const Dashboard = () => {
   const {setInterviews}=useData();
@@ -21,7 +24,7 @@ const Dashboard = () => {
     
     const getInterviews=async()=>{
       try{
-        const response=await axiosPrivate.get('/interview-management/interview');
+        const response=await axiosPrivate.get('/interview');
         if(response?.data?.success){
           isMounted && setInterviews((prev)=>response?.data?.data);
 
@@ -55,7 +58,10 @@ const Dashboard = () => {
   
   return (
   <>
-    <div>Dashboard</div>
+   
+    <h4 style={{textAlign:'center'}}>Dashboard</h4>
+    <Box style={{display:'flex'}}>
+    <div className="flex-item-left" >
     {
       flag 
       &&<Chart 
@@ -63,6 +69,11 @@ const Dashboard = () => {
         data={data}
       />
     }
+    </div>
+    <div className="flex-item-right">
+      <VerticalLinearStepper/>
+    </div>
+    </Box>
   </>
   )
 }

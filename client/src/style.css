@@ -102,8 +102,9 @@ input[type='reset'] {
   .card-img-top{
     flex-direction: column;
     width:"50%";
-    margin-top: '100%';
+    /* margin-top: '100%'; */
     display:flex;
+    margin: auto;
 
 
   }
