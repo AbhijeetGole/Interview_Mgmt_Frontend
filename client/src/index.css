@@ -1,5 +1,7 @@
 *{
   font-family: 'Roboto';
+  
+  box-sizing: border-box;
 }
 
 .btn{
@@ -43,4 +45,43 @@
 
 .btn-delete:hover{
   background-color: rgba(255, 0, 0, 0.8);
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 50%;
+  
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
+
+.card-img-top{
+  width:600px;
+  height:400px;
+  marginTop: 4%; 
+  marginLeft: 5%;
+}
+
+
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+  .card-img-top{
+    display: none;
+  }
+  .logIn-card{
+    margin-top: 20%;
+  }
 }
