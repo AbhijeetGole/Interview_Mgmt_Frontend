@@ -40,7 +40,7 @@ const Interview = () => {
 
     const getInterviews=async()=>{
       try {
-        const response=await axiosPrivate.get('/interview-management/interview');
+        const response=await axiosPrivate.get('/interview');
         if(response?.data?.success){
           isMounted && setInterviews(response?.data?.data);
         }

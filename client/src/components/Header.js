@@ -46,7 +46,6 @@ const openedMixin = (theme) => ({
   }),
   overflowX: "hidden",
 });
-// const [theme, setTheme] = React.useState("dark");
 
 const closedMixin = (theme) => ({
   transition: theme.transitions.create("width", {
@@ -109,19 +108,18 @@ const Drawer = styled(MuiDrawer, {
 // };
 
 const Header = () => {
-  const { auth } = useData();
+  const { auth, setAuth } = useData();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [flag, setFlag] = React.useState(true);
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
   const [user, setUser] = React.useState([]);
-  const axiosPrivate = useAxiosPrivate(axiosUserPrivate);
-  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = React.useState(false);
   const handleModalOpen = () => setModalOpen(true);
   const handleModalClose = () => setModalOpen(false);
+
+  const axiosPrivate = useAxiosPrivate(axiosUserPrivate);
+  const navigate = useNavigate();
+
   React.useEffect(() => {
     const getNewUser = async () => {
       try {
@@ -134,18 +132,21 @@ const Header = () => {
     };
     getNewUser();
   }, []);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
   const surrenderAsPanelMember = async () => {
     try {
       const response = await axiosPrivate.delete("/user/member/surrender");
       if (response?.data?.success) {
         console.log(response.data.data);
         setFlag((prev) => !prev);
-        // return response.data;
       }
-
       navigate("/login");
     } catch (err) {
       console.log(err.message);
@@ -154,6 +155,17 @@ const Header = () => {
   const handleDelete = async () => {
     surrenderAsPanelMember();
     handleModalClose();
+  };
+
+  const handleLogOut =async () => {
+    try{
+      const response=await axiosPrivate.get('/user/logout');
+      setAuth({});
+      navigate("/login");
+    }catch(err){
+      console.log(err.message);
+    }
+   
   };
 
   const style = {
@@ -198,7 +210,6 @@ const Header = () => {
             <h5 style={{ color: "white" }}>Hi,{user.userName}</h5>
           </Toolbar>
         </AppBar>
-
 
         <Drawer variant="permanent" open={open}>
           <DrawerHeader>
@@ -338,7 +349,9 @@ const Header = () => {
                       }}
                     >
                       <Tooltip title="Log Out">
-                        <LogoutIcon />
+                        <IconButton onClick={handleLogOut}>
+                          <LogoutIcon />
+                        </IconButton>
                       </Tooltip>
                     </ListItemIcon>
                     <ListItemText
