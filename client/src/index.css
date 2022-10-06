@@ -1,5 +1,6 @@
 *{
   font-family: 'Roboto';
+  box-sizing: border-box;
 }
 
 .btn{
@@ -51,17 +52,13 @@
 }
 .User{
   text-transform: capitalize;
-
-
 }
 .Userrole{
   text-transform: uppercase;
-
 }
 
 .skills{
   text-transform: capitalize
-
 }
 p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
   BACKGROUND-COLOR: #1976d2;
@@ -79,11 +76,8 @@ p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
 }
 #search{
   height: 2px;
-  
-
 }
 #box{
-  
     display: flex;
     flex-wrap: wrap;
     flex-direction: row-reverse;
@@ -97,10 +91,6 @@ p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
   margin-left: 4px;
   margin-bottom: 3px;
 }
-
-
-
-
 
 @media(max-width: 415px) {
   #paneltitle{
@@ -126,5 +116,42 @@ p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
     margin-left: 40px;
     width: 90%;
   }
-  
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
+
+.card-img-top{
+  width:600px;
+  height:400px;
+  marginTop: 4%; 
+  marginLeft: 5%;
+}
+
+
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+  .card-img-top{
+    display: none;
+  }
+  .logIn-card{
+    margin-top: 20%;
+  }
 }
