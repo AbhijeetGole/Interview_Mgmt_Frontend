@@ -1,0 +1,163 @@
+*{
+  font-family: 'Roboto';
+  box-sizing: border-box;
+}
+
+.table:hover{
+  background-color: #7575753b;
+}
+
+.User{
+
+  text-transform: capitalize;
+}
+.header{
+  margin-left: 60%;
+}
+.tbr{
+  background-color: #444242
+}
+@media screen and (max-width: 800px){
+  .header{
+    margin-left: 4%;
+  }
+}
+.layout{
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer{
+  text-align: center;
+  margin-top: auto; 
+  text-align: center;
+  font-weight: 600;
+  background-color: #0AA1DD;
+}
+
+.Userrole{
+  text-transform: uppercase;
+}
+
+
+
+.skills{
+  text-transform: capitalize
+}
+
+.btn-delete:hover{
+  background-color: rgba(255, 0, 0, 0.8);
+}
+
+.table:hover{
+  background-color: #7575753b;
+  
+}
+.User{
+  text-transform: capitalize;
+}
+.Userrole{
+  text-transform: uppercase;
+}
+
+.skills{
+  text-transform: capitalize
+}
+
+p.MuiTypography-root.MuiTypography-body1.css-ahj2mt-MuiTypography-root {
+  border-bottom: 50px;
+}
+
+.table>:not(caption)>*>* {
+  padding: -0.5rem .5rem;
+  background-color: var(--bs-table-bg);
+  border-bottom-width: 1px;
+  box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+}
+
+#title{
+  margin-bottom: 5px;
+}
+#search{
+  height: 2px;
+}
+#box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+    border-radius: 1;
+    margin-top: 5;
+    margin-right: 11;
+}
+
+#btn{
+  margin-right: 100px;
+  margin-left: 4px;
+  margin-bottom: 3px;
+}
+
+
+@media(max-width: 415px) {
+  #paneltitle{
+    font-size: 25px;
+    text-align: center;
+  }
+  #btn{
+    margin-right: 13px;
+    margin-bottom: 10px;
+  }
+  #search{
+    width: 150%;
+    margin-right: 45px;
+    margin-left: 2px;
+  }
+  #magni{
+    width: 10%;
+  }
+
+  #container{
+    margin-left: 40px;
+    width: 90%;
+
+  }
+
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  font-size: 30px;
+  justify-content: space-between;
+
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 50%;
+}
+
+.card-img-top{
+  width:600px;
+  height:400px;
+  margin-top: 4%; 
+  margin-left: 5%;
+}
+
+
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+  .card-img-top{
+    display: none;
+  }
+  .logIn-card{
+    margin-top: 20%;
+  }
+}
