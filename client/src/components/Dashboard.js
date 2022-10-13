@@ -4,6 +4,11 @@ import {axiosInterviewPrivate} from '../api/axios';
 import { useNavigate, useLocation } from "react-router-dom";
 import useData from '../hooks/useData';
 import Chart from './Chart';
+import { Box } from '@mui/material';
+import LineChart from './LineChart'
+import BarChart from './BarChart';
+import '../index.css'
+
 
 const Dashboard = () => {
   const {setInterviews}=useData();
@@ -55,7 +60,11 @@ const Dashboard = () => {
   
   return (
   <>
-    <div>Dashboard</div>
+   
+    <h4 style={{textAlign:'center'}}>Dashboard</h4>
+    <Box style={{display:'flex'}}>
+    <div className="flex-item-left" >
+      <label style={{marginLeft:'28%'}}>Candidate's Interview Details</label>
     {
       flag 
       &&<Chart 
@@ -63,6 +72,21 @@ const Dashboard = () => {
         data={data}
       />
     }
+    </div>
+    <div className="flex-item-right">
+    <label style={{marginLeft:'28%',marginTop:'5%'}}>Panel Member's Skills Dataset</label>
+      {/* <VerticalLinearStepper/> */}
+      <BarChart/>
+
+    </div>
+    
+    </Box>
+    <div>
+    <label style={{marginLeft:'42%',marginTop:'3%'}}>Monthwise Interview Data</label>
+
+      <LineChart/>
+    </div>
+    
   </>
   )
 }
