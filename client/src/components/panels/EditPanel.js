@@ -176,13 +176,18 @@ export default function SimplePaper() {
     setUser({ ...user, [e.target.name]: e.target.value })
   }
 
+  const handleNavigate =()=>{
+    navigate("/panel");
+  }
+
   const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
 
   return (
     <>
-      <IconButton style={{ marginRight: '80%' }}>
+      <IconButton style={{ marginRight: '80%' }} 
+        onClick={handleNavigate}>
         <ArrowBackIcon sx={{ width: 30, height: 30 }} />
       </IconButton>
       <Paper elevation={8} style={{ marginLeft: "8%", marginRight: "8%" }}>
